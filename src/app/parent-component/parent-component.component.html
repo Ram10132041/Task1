@@ -1,0 +1,32 @@
+
+<div style="background-color:darkmagenta; padding: 10px">
+    <h1>Getting Data</h1><br><br>
+    <div style="text-align:center">
+    <select name="country" [(ngModel)]="selectedLevel" (change)="getmyData();">
+        <option value="13">Australia</option>
+        <option value="16">Bahamas</option>
+        <option value="18">Bangladesh</option>
+        <option value="48">China</option>
+    </select><br>
+
+    <br>
+     <!-- <input type="button" style="color: black" class="btn btn-active" value="Display Data" (click)="showData()">-->
+    </div>
+</div>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Capital</th>
+    <th>Population</th>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let data of myValue; i as index">
+    <td>{{data.Name}}</td>
+    <td>{{data.Capital}}</td>
+    <td>{{data.Population}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<app-child-component *ngIf="selectedLevel > 0" [selectedLevel]="selectedLevel"></app-child-component>
